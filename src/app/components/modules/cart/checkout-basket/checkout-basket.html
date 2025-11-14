@@ -1,0 +1,97 @@
+<div class="checkout-container">
+  <h2>Checkout</h2>
+  <form [formGroup]="checkoutForm" (ngSubmit)="submit()">
+
+    <!-- Customer Info -->
+    <section class="section">
+      <h3>Customer Info</h3>
+      <div class="row">
+        <label>User Name</label>
+        <input formControlName="UserName" placeholder="Enter your name" />
+      </div>
+      <div class="row">
+        <label>Total Price</label>
+        <input type="number" formControlName="TotalPrice" readonly />
+      </div>
+    </section>
+
+    <!-- Payment Info -->
+    <section class="section">
+      <h3>Payment Information</h3>
+      <div class="row">
+        <label>Card Member Name</label>
+        <input formControlName="CardMemberName" placeholder="John Doe" />
+      </div>
+      <div class="row">
+        <label>Card Number</label>
+        <input formControlName="CardNumber" placeholder="1234 5678 9012 3456" />
+      </div>
+      <div class="row">
+        <label>CVV</label>
+        <input formControlName="Cvv" placeholder="123" />
+      </div>
+      <div class="row">
+        <label>Expiry Date</label>
+        <input type="date" formControlName="ExpiryDate" />
+      </div>
+      <div class="row">
+        <label>Payment Type</label>
+        <select formControlName="PaymentType">
+          <option value="">Select</option>
+          <option value="Credit">Credit Card</option>
+          <option value="Debit">Debit Card</option>
+          <option value="UPI">UPI</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Shipping Address -->
+    <section class="section">
+      <h3>Shipping Address</h3>
+      <div class="row">
+        <input formControlName="Shipping_FirstName" placeholder="First Name" />
+        <input formControlName="Shipping_LastName" placeholder="Last Name" />
+      </div>
+      <div class="row">
+        <input formControlName="Shipping_Country" placeholder="Country" />
+        <input formControlName="Shipping_Landmark" placeholder="Landmark" />
+      </div>
+      <div class="row">
+        <input formControlName="Shipping_State" placeholder="State" />
+        <input formControlName="Shipping_City" placeholder="City" />
+      </div>
+      <div class="row">
+        <input formControlName="Shipping_PostalCode" placeholder="Postal Code" />
+        <input formControlName="Shipping_Description" placeholder="Description" />
+      </div>
+    </section>
+
+    <!-- Copy Shipping to Order Button -->
+    <button type="button" class="copy-btn" (click)="copyShippingToOrder()">
+      Copy Shipping Address to Order Address
+    </button>
+
+    <!-- Order Address -->
+    <section class="section">
+      <h3>Order Address</h3>
+      <div class="row">
+        <input formControlName="Order_FirstName" placeholder="First Name" />
+        <input formControlName="Order_LastName" placeholder="Last Name" />
+      </div>
+      <div class="row">
+        <input formControlName="Order_Country" placeholder="Country" />
+        <input formControlName="Order_Landmark" placeholder="Landmark" />
+      </div>
+      <div class="row">
+        <input formControlName="Order_State" placeholder="State" />
+        <input formControlName="Order_City" placeholder="City" />
+      </div>
+      <div class="row">
+        <input formControlName="Order_PostalCode" placeholder="Postal Code" />
+        <input formControlName="Order_Description" placeholder="Description" />
+      </div>
+    </section>
+
+    <button type="submit" class="submit-btn">Submit Order</button>
+  </form>
+</div>

@@ -1,0 +1,110 @@
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 10px 15px;
+}
+
+.product-info h2 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.product-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.product-info .price {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.product-info .categories span {
+  display: inline-block;
+  background-color: #eee;
+  color: #333;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 8px;
+  margin-right: 5px;
+}
+
+.product-info button {
+  margin-top: 10px;
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.product-info button:hover {
+  background-color: #0056b3;
+}
+
+
+/* Container for username input and load button */
+.catalog-header {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* space between input and button */
+  margin-bottom: 20px;
+  padding: 10px 0;
+}
+
+/* Username input styling */
+.catalog-header input {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 200px;
+  font-size: 14px;
+}
+
+/* Load button styling */
+.catalog-header button {
+  padding: 6px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Disabled state for Load button */
+.catalog-header button:disabled {
+  background-color: #c0c0c0;
+  cursor: not-allowed;
+}
+
+/* Hover effect for Load button */
+.catalog-header button:hover:not(:disabled) {
+  background-color: #0056b3;
+}

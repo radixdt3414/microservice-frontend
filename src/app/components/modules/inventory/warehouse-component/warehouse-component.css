@@ -1,0 +1,253 @@
+/* === Base Layout === */
+.wrap {
+  padding: 24px;
+  font-family: 'Inter', sans-serif;
+  background: #f9fafb;
+  min-height: 100vh;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.search {
+  padding: 10px 14px;
+  margin-bottom: 24px;
+  width: 280px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  outline: none;
+  font-size: 14px;
+  transition: border 0.2s;
+}
+.search:focus {
+  border: 1px solid #2563eb;
+  box-shadow: 0 0 0 2px rgba(37,99,235,0.2);
+}
+
+/* === Grid & Cards === */
+.grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* === Warehouse Header === */
+.warehouse-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+.warehouse-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f2937;
+}
+.warehouse-header .muted {
+  font-size: 14px;
+  color: #6b7280;
+}
+.coords {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: #dcfce7;
+  color: #166534;
+}
+.status-badge.inactive {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* === Capacity Bar === */
+.capacity-bar {
+  height: 10px;
+  border-radius: 6px;
+  background: #f3f4f6;
+  margin-top: 8px;
+  overflow: hidden;
+}
+.capacity-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  transition: width 0.3s ease-in-out;
+}
+.capacity-text {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+/* === Inventory Table === */
+.inventory-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 14px;
+}
+.inventory-table th {
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  padding: 8px;
+  border-bottom: 1px solid #e5e7eb;
+}
+.inventory-table td {
+  padding: 10px 8px;
+  font-size: 14px;
+  color: #1f2937;
+  border-bottom: 1px solid #f3f4f6;
+}
+.thumb {
+  width: 40px;
+  height: 32px;
+  border-radius: 6px;
+  object-fit: cover;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* === Badges === */
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #e0f2fe;
+  color: #0369a1;
+}
+.badge.low {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+/* === Buttons === */
+.btn, button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+.btn {
+  background: #2563eb;
+  color: #fff;
+}
+.btn:hover {
+  background: #1e40af;
+  transform: translateY(-1px);
+}
+button {
+  background: #f3f4f6;
+  color: #374151;
+  margin-right: 4px;
+}
+button:hover {
+  background: #e5e7eb;
+}
+
+/* === Toast === */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #111827;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-size: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  animation: fadeInOut 2s forwards;
+}
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(20px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(20px); }
+}
+
+/* === Modal === */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+.modal {
+  background: #fff;
+  padding: 24px;
+  border-radius: 14px;
+  width: 400px;
+  max-width: 95%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  animation: scaleIn 0.2s ease;
+}
+.modal h3 {
+  margin-top: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 16px;
+}
+.modal label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+.modal input,
+.modal select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+.modal input:focus,
+.modal select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37,99,235,0.2);
+  outline: none;
+}
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}

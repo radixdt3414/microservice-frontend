@@ -1,0 +1,79 @@
+<div class="order-page">
+  <h1 class="page-title">📦 My Orders</h1>
+
+  <div class="controls">
+    <button class="expand-btn" (click)="expandAll()">Expand All</button>
+    <button class="collapse-btn" (click)="collapseAll()">Collapse All</button>
+  </div>
+
+  <div *ngFor="let order of orders" class="order-card">
+    
+    <!-- Order Header -->
+    <div class="order-header" (click)="toggle(order)">
+      <div>
+        <h2 class="order-name">{{ order.orderName }}</h2>
+        <p class="order-id">Order ID: {{ order.id }}</p>
+      </div>
+      <div class="order-status" [ngClass]="statusClass(order.orderStatus)">
+        {{ statusLabel(order.orderStatus) }}
+      </div>
+    </div>
+
+    <!-- Order Body -->
+    <div *ngIf="order.expanded" class="order-body">
+
+      <!-- Payment Details -->
+      <div class="section">
+        <h3>💳 Payment Details</h3>
+        <ul>
+          <li><strong>Type:</strong> {{ order.paymentDetails.paymentType }}</li>
+          <li><strong>Card Member:</strong> {{ order.paymentDetails.cardMemberName }}</li>
+          <li><strong>Expiry:</strong> {{ order.paymentDetails.expiryDate | date }}</li>
+        </ul>
+      </div>
+
+      <!-- Shipping Address -->
+      <div class="section">
+        <h3>🚚 Shipping Address</h3>
+        <p>{{ order.shippingAddressDetails.firstName }} {{ order.shippingAddressDetails.lastName }},
+          {{ order.shippingAddressDetails.city }}, {{ order.shippingAddressDetails.state }},
+          {{ order.shippingAddressDetails.country }} - {{ order.shippingAddressDetails.postalCode }}
+        </p>
+      </div>
+
+      <!-- Billing Address -->
+      <div class="section">
+        <h3>🏠 Billing Address</h3>
+        <p>{{ order.orderAddressDetails.firstName }} {{ order.orderAddressDetails.lastName }},
+          {{ order.orderAddressDetails.city }}, {{ order.orderAddressDetails.state }},
+          {{ order.orderAddressDetails.country }} - {{ order.orderAddressDetails.postalCode }}
+        </p>
+      </div>
+
+      <!-- Order Items -->
+      <div class="section">
+        <h3>🛍️ Items</h3>
+        <div *ngFor="let item of order.orderItems" class="product-card">
+          <img *ngIf="item?.image" [src]="item?.image" alt="{{ item?.productName ?? '' }}">
+          <div class="product-info">
+            <h4>{{ item.productName || 'Unknown Product' }}</h4>
+            <!-- <p>{{ item.productDetails?.description }}</p>
+            <p class="categories">
+              <span *ngFor="let cat of item.productDetails?.categories" class="category">{{ cat }}</span>
+            </p> -->
+            <p class="price">
+              ₹{{ item.price }}
+              <!-- <span *ngIf="item.productDetails?.discount" class="discount">-₹{{ item.productDetails.discount }}</span> -->
+            </p>
+            <p>Qty: {{ item.quentity }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Total Price -->
+      <div class="total-price">
+        Total: ₹{{ order.totalPrice }}
+      </div>
+    </div>
+  </div>
+</div>

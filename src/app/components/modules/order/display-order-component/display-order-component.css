@@ -1,0 +1,31 @@
+.order-page { max-width: 960px; margin: 0 auto; padding: 2rem; font-family: 'Segoe UI', sans-serif; }
+.page-title { text-align: center; font-size: 2.5rem; font-weight: 800; color: #4f46e5; margin-bottom: 1.5rem; }
+.controls { display: flex; justify-content: flex-end; gap: 1rem; margin-bottom: 1.5rem; }
+.expand-btn, .collapse-btn { padding: 0.5rem 1rem; border-radius: 0.75rem; border: none; color: white; cursor: pointer; font-weight: bold; transition: transform 0.2s; }
+.expand-btn { background-color: #4f46e5; }
+.collapse-btn { background-color: #6b7280; }
+.expand-btn:hover, .collapse-btn:hover { transform: scale(1.05); }
+.order-card { border-radius: 1rem; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background-color: white; margin-bottom: 1.5rem; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
+.order-card:hover { transform: translateY(-3px); box-shadow: 0 8px 16px rgba(0,0,0,0.15); }
+.order-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; cursor: pointer; background: linear-gradient(90deg, #4f46e5, #8b5cf6, #ec4899); color: white; }
+.order-name { font-weight: 600; font-size: 1.2rem; }
+.order-id { font-size: 0.85rem; opacity: 0.85; }
+.order-status { padding: 0.25rem 0.75rem; border-radius: 9999px; font-weight: bold; font-size: 0.85rem; text-align: center; }
+.processing { background-color: #facc15; color: white; }
+.completed { background-color: #22c55e; color: white; }
+.cancelled { background-color: #ef4444; color: white; }
+.failed { background-color: #374151; color: white; }
+.unknown { background-color: #9ca3af; color: black; }
+.order-body { padding: 1.5rem; background-color: #f9fafb; }
+.section { margin-bottom: 1rem; }
+.section h3 { font-weight: 600; margin-bottom: 0.25rem; color: #374151; }
+.items-list { list-style: none; padding: 0; }
+.items-list li { display: flex; justify-content: space-between; border-bottom: 1px solid #e5e7eb; padding: 0.5rem 0; font-size: 0.95rem; color: #4b5563; }
+.total-price { text-align: right; font-weight: 700; font-size: 1.25rem; color: #4f46e5; }
+
+/* Product card styling */
+.product-card { display: flex; gap: 1rem; border: 1px solid #e5e7eb; border-radius: 0.75rem; padding: 0.75rem; margin-bottom: 0.75rem; background: white; }
+.product-card img { width: 80px; height: 80px; object-fit: cover; border-radius: 0.5rem; }
+.product-info h4 { font-weight: 600; margin-bottom: 0.25rem; }
+.product-info p { font-size: 0.9rem; margin: 0.125rem 0; color: #4b5563; }
+.product-info .categories { display: flex; gap: 0.25rem; flex-wrap: wrap; margin: 0.25rem 0;}

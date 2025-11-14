@@ -1,0 +1,130 @@
+.cart-container {
+  max-width: 800px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+.cart-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.cart-item h3 {
+  margin: 0 0 5px 0;
+}
+
+.cart-item p {
+  margin: 5px 0;
+}
+
+.cart-item button {
+  padding: 4px 8px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cart-item button:hover {
+  opacity: 0.85;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.clear-button {
+  background-color: #ffc107;
+  color: black;
+  margin-right: 10px;
+}
+
+.save-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.cart-footer {
+  margin-top: 20px;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.cart-footer p {
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.cart-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 15px 20px;
+  border-top: 2px solid #ddd;
+  border-radius: 0 0 10px 10px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Left section: totals + clear button */
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-left p {
+  margin: 0;
+  font-weight: 500;
+  color: #333;
+}
+
+.clear-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.clear-button:hover {
+  background-color: #b52a37;
+}
+
+/* Right section: checkout button */
+.footer-right {
+  display: flex;
+  align-items: center;
+}
+
+.checkout-btn {
+  background: linear-gradient(135deg, #28a745, #218838);
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.checkout-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.checkout-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}

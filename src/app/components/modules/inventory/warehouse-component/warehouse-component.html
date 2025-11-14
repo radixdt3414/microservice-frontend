@@ -1,0 +1,85 @@
+<div class="wrap">
+  <h1>Warehouses & Inventory</h1>
+  <!-- <input class="search" placeholder="Search products..." [(ngModel)]="searchTerm" /> -->
+
+  <section class="grid">
+    <article *ngFor="let w of warehouses" class="card">
+      <!-- Header -->
+      <div class="warehouse-header">
+        <div>
+          <h2>{{ w.name }}</h2>
+          <p class="muted">{{ w.city }}, {{ w.state }}, {{ w.country }} ({{ w.postalCode }})</p>
+          <p class="coords" *ngIf="w.latitude && w.longitude">📍 {{ w.latitude }}, {{ w.longitude }}</p>
+        </div>
+        <div>
+          <span class="status-badge" [class.inactive]="!w.isActive">
+            {{ w.isActive ? 'Active' : 'Inactive' }}
+          </span>
+          <div class="capacity-bar">
+            <div class="capacity-bar-fill" [style.width.%]="(w.currentCapacityUnitUsed / w.capacityUnit) * 100"></div>
+          </div>
+          <p class="capacity-text">{{ w.currentCapacityUnitUsed }} / {{ w.capacityUnit }} Units</p>
+        </div>
+      </div>
+
+      <!-- Inventory -->
+      <table class="inventory-table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>On Hand</th>
+            <th>Reserved</th>
+            <th>Available</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of w.inventoryItem">
+            <td>
+              <img [src]="item.productImage" class="thumb" />
+              {{ item.productName }}
+            </td>
+            <td>{{ item.quantityOnHand }}</td>
+            <td>{{ item.quantityReserved }}</td>
+            <td>
+              <span class="badge" [class.low]="(item.quantityOnHand - item.quantityReserved) <= 3">
+                {{ item.quantityOnHand - item.quantityReserved }}
+              </span>
+            </td>
+            <td>
+              <button (click)="openEditModal(w.id, item)">Edit</button>
+              <!-- <button (click)="confirmAndDelete(w.id, item.id!)">Delete</button> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button class="btn" (click)="openAddModal(w.id)">+ Add Product</button>
+    </article>
+  </section>
+
+  <!-- Toast -->
+  <div class="toast" *ngIf="message">{{ message }}</div>
+
+  <!-- Modal -->
+  <div class="modal-backdrop" *ngIf="modalOpen">
+    <div class="modal">
+      <h3>{{ isEdit ? 'Edit Inventory' : 'Add Inventory' }}</h3>
+      <form [formGroup]="form" (ngSubmit)="save()">
+        <label>Product</label>
+        <select formControlName="productId">
+          <option value="">Select</option>
+          <option *ngFor="let p of filterProduct" [value]="p.id">{{ p.name }}</option>
+        </select>
+
+        <label>Quantity On Hand</label>
+        <input type="number" formControlName="quantityOnHand" />
+
+        <div class="actions">
+          <button type="button" (click)="closeModal()">Cancel</button>
+          <button type="submit" [disabled]="form.invalid">{{ isEdit ? 'Update' : 'Add' }}</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
