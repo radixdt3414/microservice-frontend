@@ -1,0 +1,33 @@
+<form [formGroup]="productForm" (ngSubmit)="submit()" class="product-form">
+  <div>
+    <label>Name:</label>
+    <input formControlName="Name" />
+  </div>
+
+  <div>
+    <label>Description:</label>
+    <textarea formControlName="Description"></textarea>
+  </div>
+
+  <div>
+    <label>Price:</label>
+    <input type="number" formControlName="Price" />
+  </div>
+
+  <div>
+    <label>Image URL:</label>
+    <input formControlName="Image" />
+  </div>
+
+  <div formArrayName="Categories">
+    <label>Categories:</label>
+    <div *ngFor="let category of categories.controls; let i = index">
+      <input [formControlName]="i" />
+      <button type="button" (click)="removeCategory(i)">Remove</button>
+    </div>
+    <input #newCategory placeholder="Add category" />
+    <button type="button" (click)="addCategory(newCategory.value); newCategory.value=''">Add</button>
+  </div>
+
+  <button type="submit">{{ product ? 'Update' : 'Add' }} Product</button>
+</form>
